@@ -16,6 +16,10 @@ const authSchema=new mongoose.Schema({
     country:{
         type:String,
         required:true
+    },
+    role:{
+        type:String,
+        default:"user"
     }
 },{
     timestamps:true

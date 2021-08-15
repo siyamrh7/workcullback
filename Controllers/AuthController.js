@@ -26,7 +26,7 @@ const loginController=async(req,res)=>{
         if(!User){return res.json({msg:"User Not Found"})}
         const cheak=await compare(password,User.password)
         if(!cheak){return res.json({msg:"Password doesn't match"})}
-        const token= await sign({email},process.env.JWT_SECRET || "SIYAM",{expiresIn:'7d'})
+        const token= await sign({User},process.env.JWT_SECRET || "SIYAM",{expiresIn:'7d'})
         res.json({msg:"Login Successfull",token})
     } catch (error) {
         res.json({error})
